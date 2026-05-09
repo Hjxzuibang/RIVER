@@ -1,0 +1,8 @@
+numpy>=1.21
+scipy>=1.7
+torch>=1.12
+scanpy>=1.9
+anndata>=0.8
+pandas>=1.4
+PyYAML>=6.0
+scikit-learn>=1.0

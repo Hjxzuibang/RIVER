@@ -1,0 +1,32 @@
+# Replogle RPE1 — single-gene perturbation dataset
+# 3,783 genes, 167 test perturbations
+
+exp_name: river_replogle_rpe1
+seed: 42
+device: cuda
+
+data:
+  dataset: Replogle
+  celltype: RPE1
+  data_dir: rawdata
+  processed_dir: processed_data
+
+stage1:
+  n_epochs: 500
+  lr: 0.003
+  hidden_dim: 64
+  adj_threshold: 0.3
+  lambda_l1: 0.002
+  lambda_l1_no_prior: 0.02
+  prior_mask_mode: adaptive
+
+stage2:
+  n_epochs: 300
+  lr: 0.001
+  batch_size: 256
+  lambda_pert_scm: 0.1
+
+stage3:
+  max_interventions: 5
+  diff_threshold: 0.5
+  score_mode: raw
